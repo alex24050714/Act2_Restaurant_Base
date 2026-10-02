@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria da Ugo Brambilla</title>
+    <!-- Google Fonts aquí -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER amb navegació -->
+    <header>
+        <nav>
+            <div class="logo">Pizzeria da Ugo Brambilla</div>
+            <ul class="nav-menu">
+                <li><a href="#inici">Inici</a></li>
+                <li><a href="#sobre-nosaltres">Sobre nosaltres</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#reserva">Reserva</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inici" class="hero">
+        <h1>La specialità di mamma</h1>
+        <p>Pizzeria da Ugo Brambilla es un rincón gastronómico que rinde homenaje a la tradición, la nostalgia y al amor incondicional de una madre.
+            En nuestro local fusionamos dos de las mayores pasiones de cocina italiana: la masa artesanal de pizza horneada a la perfección y la pasta
+            penne reconfortante.
+        </p>
+        <a href="#reserva" class="btn-primary">Reserva ara</a>
+    </section>
+
+    <!-- SOBRE NOSALTRES -->
+    <section id="sobre-nosaltres" class="about">
+        <h2>Sobre nosaltres</h2>
+        <p>Detrás de cada gran receta hay un recuerdo inolvidable. El chef y fundador, Ugo Brambilla, creció bajo la calidez de la cocina
+            de su madre, quien solía prepararle de niño una creación verdaderamente única: la Pizza de Penne. Era el plato estrella de la casa,
+            una combinación de textura crujiente y sabor hogareño que solo la mamma sabía lograr.
+
+            Tras un trágico y surrealista accidente donde su madre falleció impactada por una tortuga voladora, Ugo decidió que la mejor manera
+            de mantener vivo su espíritu y legado no era el luto, sino la celebración. Con una aureola flotando simbólicamente sobre el recuerdo de su
+            ángel en la cocina, Ugo encendió los hornos y abrió las puertas de Pizzeria Da Ugo Brambilla para compartir con el mundo La Specialità di Mamma.
+        </p>
+    </section>
+
+    <!-- DESTACATS DEL MENÚ -->
+    <section id="menu" class="menu-highlight">
+        <h2>Els nostres plats</h2>
+        <div class="dishes">
+            <div class="dish-card">
+                <h3>La Specialità di Mamma (La Casa)</h3>
+                <p>La legendaria pizza que dio origen a todo. Una base crujiente de masa madre con salsa de tomate italiano, queso mozzarella
+                    fiordilatte, pasta penne salteada al punto dente en salsa arabiata suave, albahaca fresca y un toque de queso parmesano
+                    rallado al momento.</p>
+                <span class="price">12€</span>
+            </div>
+            <div class="dish-card">
+                <h3>La Tartaruga Volante</h3>
+                <p>Un tributo irónico al insólito destino que cambió la vida del chef Ugo. Base de salsa de tomate, mozzarella,
+                    nduja calabresa (embutido de cerdo picante), pepperoni crujiente, cebolla morada caramelizada y un hilo de miel
+                    picante infusionada con guindilla.</p>
+                <span class="price">13,5€</span>
+            </div>
+            <div class="dish-card">
+                <h3>II Paradiso di Ugo</h3>
+                <p>Inspirada en la serenidad y la aureola de la mamma. Pizza blanca (sin tomate) sobre una base de crema
+                    de trufa blanca, mozzarella de búfala, mezcla de setas silvestres salteadas al ajo y finas lonchas de
+                    prosciutto di Parma añadidas al salir del horno.</p>
+                <span class="price">15€</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARI DE RESERVA -->
+    <section id="reserva" class="reservation">
+        <h2>Reserva la teva taula</h2>
+        <form>
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="date">Data</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="time">Hora</label>
+            <input type="time" id="time" name="time" required>
+            
+            <label for="guests">Número de persones</label>
+            <select id="guests" name="guests">
+                <option value="1">1 persona</option>
+                <option value="2">2 persones</option>
+                <option value="3">3 persones</option>
+                <option value="4">4 persones</option>
+                <option value="5">5+ persones</option>
+            </select>
+            
+            <button type="submit" class="btn-primary">Confirmar reserva</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Pizzeria da Ugo Brambilla. Tots els drets reservats.</p>
+        <p>Adreça: Via del Tortuga 14, Penne España | Tel: +34 985 018 195 </p>
+    </footer>
+</body>
+</html>
