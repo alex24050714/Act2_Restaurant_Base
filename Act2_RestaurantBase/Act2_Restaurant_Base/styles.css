@@ -1,23 +1,39 @@
 /* ============================================
    ACTIVITAT 2: ESTILITZACIÓ AMB CSS
-   Nom: 
-   Restaurant: 
+   Nom: Alex Alias Montserrat
+   Restaurant: Pizzeria Da Ugo Brambilla
    ============================================ */
 
 /* ============================================
    VARIABLES CSS
    Defineix aquí totes les teves variables
+
+   S'utilitza el selector :root per a la gestió global de la paleta tant de colors com de tipografies i altres efectes.
+   Això permet una fàcil modificació i manteniment de l'estil del lloc web.
    ============================================ */
 
 :root {
-  /* Afegeix aquí les teves variables CSS */
-  /* Colors principals (exemple de com crear les variables) */
-  --primary-color: #8b1e17;      /* Color principal del restaurant */
-  --secondary-color: #2d5a27;    /* Color secundari (botons, accents) */
-  --accent-color: #d4a359;       /* Color d'accent (links, highlights) */
+  /* Colors principals (inspirats en la tradició italiana) */
+  --primary-color: #8B1E17;      /* Vermell vi / terra cuita tradicional */
+  --secondary-color: #2D5A27;    /* Verd fosc buscat en la salsa de busseig/alfàbrega */
+  --accent-color: #D4A359;       /* Daurat / coure càlid per botons i detalls */
+  
+  /* Colors addicionals de fons i text */
+  --bg-cream: #FDF8F0;           /* Crema càlid de fons */
+  --bg-reservation: #F4E8D8;     /* Fons diferenciat per a la secció de reserva*/
+  --bg-card: #FFFFFF;            /* Blanc pur per a targetes */
+  --text-dark: #3E2723;          /* Marró molt fosc per al text (més càlid que el negre) */
+  --text-muted: #E0D0C0;         /* Text secundari del footer (per bon contrast) */
+  --text-light: #FDF8F0;         /* Text clar per a fons foscos */
+  --border-color: #E8D8C8;       /* Línies de separació suaus */
+  
+  /* Tipografies de Google Fonts */
+  --font-title:'Playfair Display', Georgia, serif; /*Tipografia mes elegant per als titols*/
+  --font-body: 'Lato', sans-serif;  /* Tipografia de fàcil lectura per a paràgrafs */
 
-  --bg-cream: #fdf8f0;
-  --bg-card: #FFFFFF;
+  /* Ombres i efectes */
+  --shadow: 0 4px 12px rgba(62, 39, 35, 0.1); /* Ombra suau de caixa */
+  --radius: 8px;                    /* Rodoniment estàndar de les boreres */
 }
 
 
@@ -27,14 +43,78 @@
 
 /* Afegeix aquí el reset bàsic i estils del body */
 
+/* Selector universal (*): Neteja de marges i farciments per defecte */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garanteix que el padding no augmenti l'ample total */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+} 
 
 /* ============================================
    TIPOGRAFIA
    ============================================ */
     /*Exemple de com fer anar les variables*/
-   h1{ 
-    color: var(--primary-color);
-   }
+h1, h2, h3 {
+  font-family: var(--font-title);
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  font-size: 2.8rem;
+  text-align: center;
+}
+
+/* Títol secundari amb subratllat verd mitjançant el pseudoelement ::after */
+h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
 
 /* Afegeix aquí els estils per h1, h2, h3, p, etc. */
 
@@ -44,13 +124,92 @@
    ============================================ */
 
 /* Afegeix aquí els estils del header i nav */
+header {
+  background-color: var(--text-dark);
+  position: sticky;        /* Manté la barra de navegació fixa a dalt */
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
 
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;     /* Layout horitzontal flex */
+  justify-content: space-between;   /* Logo a l'esquerra, menú a la dreta */
+  align-items: center;
+  padding: 0.8rem 2rem;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Pseudoelement per a la foto circular del logo */
+.logo::before {
+  content: '';
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-image: url('assets/Pizzeria_da_ugo.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;  /* Treu els punts de la llista <ul> */
+  gap: 2rem;      /* Espaiat entre els enllaços */
+}
+
+.nav-menu a {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* Efecte hover de la navegació */
+.nav-menu a:hover {
+  color: var(--accent-color);
+}
 
 /* ============================================
    HERO SECTION
    ============================================ */
 
 /* Afegeix aquí els estils de la secció hero */
+.hero {
+   /* Filtre fosc transparent amb linear-gradient sobre la imatge de fons */
+  background: linear-gradient(rgba(62, 39, 35, 0.75), rgba(62, 39, 35, 0.75)), 
+              url('assets/hero-bg.jpg') center/cover no-repeat;
+  color: var(--text-light);
+  text-align: center;
+  padding: 6rem 2rem;   /* Padding geneós de la secció */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  color: var(--text-light);
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;     /* Limita l'amplada del text per a millor lectura */
+  margin-bottom: 2rem;
+  color: var(--bg-cream);
+}
 
 
 /* ============================================
@@ -58,13 +217,34 @@
    ============================================ */
 
 /* Afegeix aquí els estils dels botons */
-
+.btn-primary {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;   /* Punter de mà al passar pel damunt */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
 /* ============================================
    SECCIÓ SOBRE NOSALTRES
    ============================================ */
 
 /* Afegeix aquí els estils de .about */
+.about {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  text-align: justify;
+}
+
+.about h2 {
+  margin-bottom: 1.5rem;
+}
 
 
 /* ============================================
@@ -72,6 +252,55 @@
    ============================================ */
 
 /* Afegeix aquí els estils de .menu-highlight i .dish-card */
+.menu-highlight {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+/* Reixeta adaptable amb CSS Grid */
+.dishes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+/* Targeta individual */
+.dish-card {
+  background-color: var(--bg-card); /* Fons blanc clar */
+  border-radius: var(--radius);  /* Arredoniment de vores */
+  padding: 1.8rem;      /* Espaiat intern generós */
+  box-shadow: var(--shadow);  /* Ombra suau */
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;   /* Manté el preu a la part inferior */
+  transition: transform 0.3s ease;
+}
+
+/* Efecte d'elevació del hover */
+.dish-card:hover {
+  transform: translateY(-5px);
+}
+
+.dish-card h3 {
+  margin-bottom: 0.8rem;
+  color: var(--primary-color);
+}
+
+.dish-card p {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.price {
+  font-weight: bold;
+  color: var(--secondary-color);
+  font-size: 1.3rem;
+  align-self: flex-end;
+}
 
 
 /* ============================================
@@ -79,6 +308,51 @@
    ============================================ */
 
 /* Afegeix aquí els estils del formulari */
+.reservation {
+  background-color: #F4E8D8;  /* Fons diferenciat per destacar la secció */
+  padding: 4rem 2rem;
+  margin-top: 4rem;
+}
+
+.reservation form {
+  max-width: 500px;
+  margin: 2rem auto 0;
+  background-color: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.reservation label {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-top: 0.5rem;
+}
+
+.reservation input,
+.reservation select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: var(--bg-cream);
+}
+
+/* Estat focus ressaltat amb el color verd d'accent */
+.reservation input:focus,
+.reservation select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+.reservation button {
+  margin-top: 1.2rem;
+}
 
 
 /* ============================================
@@ -86,3 +360,15 @@
    ============================================ */
 
 /* Afegeix aquí els estils del footer */
+footer {
+  background-color: var(--text-dark);
+  color: var(--text-light);
+  text-align: center;
+  padding: 2.5rem 2rem;
+  font-size: 0.95rem;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+  color: #C2B2A3;       /* Variable que garanteix el bon contrast de text */
+}
