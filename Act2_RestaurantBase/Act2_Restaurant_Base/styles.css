@@ -14,8 +14,9 @@
 
 :root {
   /* Colors principals (inspirats en la tradició italiana) */
-  --primary-color: #8B1E17;      /* Vermell vi / terra cuita tradicional */
-  --secondary-color: #2D5A27;    /* Verd fosc buscat en la salsa de busseig/alfàbrega */
+  --primary-color: #5c100b;      /* Vermell vi / terra cuita tradicional */
+  --secondary-color: #569b4d;    /* Verd fosc buscat en la salsa de busseig/alfàbrega */
+  --third-color: #8f403b;
   --accent-color: #D4A359;       /* Daurat / coure càlid per botons i detalls */
   
   /* Colors addicionals de fons i text */
@@ -28,12 +29,13 @@
   --border-color: #E8D8C8;       /* Línies de separació suaus */
   
   /* Tipografies de Google Fonts */
-  --font-title:'Playfair Display', Georgia, serif; /*Tipografia mes elegant per als titols*/
-  --font-body: 'Lato', sans-serif;  /* Tipografia de fàcil lectura per a paràgrafs */
+  --font-title: 'Adamina', Georgia, serif; /*Tipografia mes elegant per als titols*/
+  --font-body: 'Fira Sans', sans-serif;  /* Tipografia de fàcil lectura per a paràgrafs */
 
   /* Ombres i efectes */
-  --shadow: 0 4px 12px rgba(62, 39, 35, 0.1); /* Ombra suau de caixa */
   --radius: 8px;                    /* Rodoniment estàndar de les boreres */
+  --shadow: 0 2px 4px #E8D8C8;
+  --shadow-hover: 0 8px 16px #D4A359;
 }
 
 
@@ -125,7 +127,7 @@ a:hover {
 
 /* Afegeix aquí els estils del header i nav */
 header {
-  background-color: var(--text-dark);
+  background-color: var(--primary-color);
   position: sticky;        /* Manté la barra de navegació fixa a dalt */
   top: 0;
   z-index: 1000;
@@ -187,8 +189,7 @@ nav {
 /* Afegeix aquí els estils de la secció hero */
 .hero {
    /* Filtre fosc transparent amb linear-gradient sobre la imatge de fons */
-  background: linear-gradient(rgba(62, 39, 35, 0.75), rgba(62, 39, 35, 0.75)), 
-              url('assets/hero-bg.jpg') center/cover no-repeat;
+  background-color: var(--third-color);
   color: var(--text-light);
   text-align: center;
   padding: 6rem 2rem;   /* Padding geneós de la secció */
@@ -282,11 +283,12 @@ nav {
 /* Efecte d'elevació del hover */
 .dish-card:hover {
   transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
 }
 
 .dish-card h3 {
   margin-bottom: 0.8rem;
-  color: var(--primary-color);
+  color: var(--third-color);
 }
 
 .dish-card p {
@@ -297,9 +299,30 @@ nav {
 
 .price {
   font-weight: bold;
-  color: var(--secondary-color);
+  color: var(--text-dark);
   font-size: 1.3rem;
   align-self: flex-end;
+}
+
+.dish-card::before{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.dish-card:nth-child(1)::before{
+  background-image: url('assets/la_specialita.png');
+}
+
+.dish-card:nth-child(2)::before{
+  background-image: url('assets/tartaruga_volante.png');
+}
+
+.dish-card:nth-child(3)::before{
+  background-image: url('assets/paradiso_di_ugo.png');
 }
 
 
@@ -309,7 +332,7 @@ nav {
 
 /* Afegeix aquí els estils del formulari */
 .reservation {
-  background-color: #F4E8D8;  /* Fons diferenciat per destacar la secció */
+  background-color: var(--bg-reservation);  /* Fons diferenciat per destacar la secció */
   padding: 4rem 2rem;
   margin-top: 4rem;
 }
@@ -321,6 +344,7 @@ nav {
   padding: 2.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -370,5 +394,5 @@ footer {
 
 footer p {
   margin-bottom: 0.5rem;
-  color: #C2B2A3;       /* Variable que garanteix el bon contrast de text */
+  color: var(--border-color);       /* Variable que garanteix el bon contrast de text */
 }
