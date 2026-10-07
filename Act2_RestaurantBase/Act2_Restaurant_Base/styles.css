@@ -111,7 +111,6 @@ p {
 a {
   color: var(--primary-color);
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 a:hover {
@@ -229,6 +228,10 @@ nav {
   font-weight: bold;
   cursor: pointer;   /* Punter de mà al passar pel damunt */
   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover{
+  color: var(--secondary-color);
 }
 
 /* ============================================
