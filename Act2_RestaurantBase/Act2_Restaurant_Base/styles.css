@@ -16,7 +16,7 @@
   /* Colors principals (inspirats en la tradició italiana) */
   --primary-color: #5c100b;      /* Vermell vi / terra cuita tradicional */
   --secondary-color: #569b4d;    /* Verd fosc buscat en la salsa de busseig/alfàbrega */
-  --third-color: #8f403b;
+  --third-color: #852f29;
   --accent-color: #D4A359;       /* Daurat / coure càlid per botons i detalls */
   
   /* Colors addicionals de fons i text */
@@ -24,7 +24,6 @@
   --bg-reservation: #F4E8D8;     /* Fons diferenciat per a la secció de reserva*/
   --bg-card: #FFFFFF;            /* Blanc pur per a targetes */
   --text-dark: #3E2723;          /* Marró molt fosc per al text (més càlid que el negre) */
-  --text-muted: #E0D0C0;         /* Text secundari del footer (per bon contrast) */
   --text-light: #FDF8F0;         /* Text clar per a fons foscos */
   --border-color: #E8D8C8;       /* Línies de separació suaus */
   
@@ -208,7 +207,7 @@ nav {
   font-size: 1.2rem;
   max-width: 700px;     /* Limita l'amplada del text per a millor lectura */
   margin-bottom: 2rem;
-  color: var(--bg-cream);
+  color: var(--text-light);
 }
 
 
